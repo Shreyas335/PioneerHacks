@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'main.dart';
 import 'auth.dart';
-import 'login/login_view.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -32,15 +31,15 @@ class _HomeState extends State<Home> {
             padding: EdgeInsets.zero,
             children: [
               UserAccountsDrawerHeader(
-                accountName: Text('raybo.com'),
+                accountName: Text('ballsKsharma.com'),
                 accountEmail: Text('PKS@gmail.com'),
                 currentAccountPicture: CircleAvatar(
                   child: ClipOval(
                     child: Image.network(
                       'https://preview.redd.it/v0caqchbtn741.jpg?auto=webp&s=c5d05662a039c031f50032e22a7c77dfcf1bfddc',
                       fit: BoxFit.cover,
-                      width: 60,
-                      height: 50,
+                      width: 90,
+                      height: 90,
                     ),
                   ),
                 ),
@@ -155,7 +154,7 @@ class _HomeState extends State<Home> {
               ),
             ]),
           ),
-          Scaffold(body: LoginView()
+          Scaffold(
               // appBar: AppBar(
               //   title: Text('Login'),
               //   backgroundColor: Colors.amber,
