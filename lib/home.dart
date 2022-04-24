@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'main.dart';
+
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
   @override
@@ -150,7 +152,16 @@ class _HomeState extends State<Home> {
               ),
             ]),
           ),
-          Scaffold(),
+          Scaffold(
+            appBar: AppBar(
+              title: Text('Login'),
+              backgroundColor: Colors.amber,
+            ),
+            body: Center(
+                child: Column(
+              children: <Widget>[LoginButton(), UserProfile()],
+            )),
+          ),
           Scaffold()
         ],
       ),
