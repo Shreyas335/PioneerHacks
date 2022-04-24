@@ -17,18 +17,73 @@ class MyApp extends StatelessWidget {
               'Hello chaps',
             ),
             backgroundColor: Color.fromARGB(255, 52, 211, 4)),
-        body: ListView(padding: const EdgeInsets.all(8), children: <Widget>[
+        body: ListView(padding: const EdgeInsets.all(0), children: <Widget>[
           FlatButton(
             onPressed: () {},
             child: Text(
-              "Cello Hat",
-              style:
-                  DefaultTextStyle.of(context).style.apply(fontSizeFactor: 5.0),
+              "Cello Hat 1",
+              style: TextStyle(
+                  fontSize: 75, color: Color.fromARGB(255, 255, 255, 255)),
+              textAlign: TextAlign.left,
             ),
             height: 300,
-            color: Color.fromARGB(0, 8, 8, 97),
+            color: Color.fromARGB(230, 108, 108, 231),
           ),
-          const BottomHud(),
+          FlatButton(
+            onPressed: () {},
+            child: Text(
+              "Cello Hat 2",
+              style: TextStyle(
+                  fontSize: 75, color: Color.fromARGB(255, 255, 255, 255)),
+              textAlign: TextAlign.left,
+            ),
+            height: 300,
+            color: Color.fromARGB(230, 108, 108, 231),
+          ),
+          FlatButton(
+            onPressed: () {},
+            child: Text(
+              "Cello Hat 3",
+              style: TextStyle(
+                  fontSize: 75, color: Color.fromARGB(255, 255, 255, 255)),
+              textAlign: TextAlign.left,
+            ),
+            height: 300,
+            color: Color.fromARGB(230, 108, 108, 231),
+          ),
+          FlatButton(
+            onPressed: () {},
+            child: Text(
+              "Cello Hat 4",
+              style: TextStyle(
+                  fontSize: 75, color: Color.fromARGB(255, 255, 255, 255)),
+              textAlign: TextAlign.left,
+            ),
+            height: 300,
+            color: Color.fromARGB(230, 108, 108, 231),
+          ),
+          FlatButton(
+            onPressed: () {},
+            child: Text(
+              "Cello Hat 5",
+              style: TextStyle(
+                  fontSize: 75, color: Color.fromARGB(255, 255, 255, 255)),
+              textAlign: TextAlign.left,
+            ),
+            height: 300,
+            color: Color.fromARGB(230, 108, 108, 231),
+          ),
+          FlatButton(
+            onPressed: () {},
+            child: Text(
+              "Cello Hat 6",
+              style: TextStyle(
+                  fontSize: 75, color: Color.fromARGB(255, 255, 255, 255)),
+              textAlign: TextAlign.left,
+            ),
+            height: 300,
+            color: Color.fromARGB(230, 108, 108, 231),
+          ),
         ]),
 
         //body: Body()
@@ -89,25 +144,22 @@ class _BottomHudState extends State<BottomHud> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('BottomNavigationBar Sample'),
-      ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedTab),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
+            icon: Icon(Icons.group),
+            label: 'My Groups',
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
+            icon: Icon(Icons.notifications),
+            label: 'Notifications',
           ),
         ],
         currentIndex: _selectedTab,
