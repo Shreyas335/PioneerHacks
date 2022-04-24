@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'auth.dart';
-import 'firebase_options.dart';
+//import 'firebase_options.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'home.dart';
 
@@ -22,7 +22,7 @@ class LoginButton extends StatelessWidget {
             );
           } else {
             return MaterialButton(
-              onPressed: () => authService.googleSignIn(),
+              onPressed: () => authService.SignInWithGoogle(),
               color: Colors.white,
               textColor: Colors.black,
               child: Text('Login with Google'),

@@ -1,6 +1,7 @@
 import 'package:app/share/style.dart';
 import 'package:flutter/material.dart';
 import '../../share/sizes.dart';
+import 'package:stacked/stacked.dart';
 
 class AuthenticationLayout extends StatelessWidget {
   final String? title;
@@ -61,9 +62,9 @@ class AuthenticationLayout extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: SizedBox(
               width: screenWidthPercentage(context, percentage: 0.7),
-              child: BoxText.body(
+              child: Text(
                 subtitle!,
-                color: Colors.grey.shade400,
+                style: ktsMediumGreyBodyText,
               ),
             ),
           ),
@@ -75,15 +76,21 @@ class AuthenticationLayout extends StatelessWidget {
               alignment: Alignment.centerRight,
               child: GestureDetector(
                   onTap: onForgotPassword,
-                  child: BoxText.body(
+                  child: Text(
                     'Forget Password?',
+                    style: ktsMediumGreyBodyText.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
                   )),
             ),
           verticalSpaceRegular,
           if (validationMessage != null)
-            BoxText.body(
+            Text(
               validationMessage!,
-              color: Colors.red,
+              style: TextStyle(
+                color: Colors.red,
+                fontSize: kBodyTextSize,
+              ),
             ),
           if (validationMessage != null) verticalSpaceRegular,
           GestureDetector(
@@ -129,9 +136,10 @@ class AuthenticationLayout extends StatelessWidget {
             ),
           if (showTermsText)
             Text(
-              'By signing up you agree to our terms, conditions and privacy policy.', style: ktsMediumGreyBodyText, textAlign: TextAlign.center,
+              'By signing up you agree to our terms, conditions and privacy policy.',
+              style: ktsMediumGreyBodyText,
+              textAlign: TextAlign.center,
             )
-          
         ],
       ),
     );

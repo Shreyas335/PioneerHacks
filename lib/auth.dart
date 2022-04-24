@@ -10,8 +10,9 @@ class AuthService {
   final Firestore _db = Firestore.instance;
 
   // Shared State for Widgets
-  Observable<FirebaseUser> user; // firebase user
-  Observable<Map<String, dynamic>> profile; // custom user data in Firestore
+  late Observable<FirebaseUser> user; // firebase user
+  late Observable<Map<String, dynamic>>
+      profile; // custom user data in Firestore
   PublishSubject loading = PublishSubject();
 
   // constructor
@@ -31,25 +32,24 @@ class AuthService {
     });
   }
 
-  Future<FirebaseUser> googleSignIn() async {
-    // Start
-    loading.add(true);
+  Future<String> SignInWithGoogle() async {
+    final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
+    final GoogleSignInAuthentication googleAuth =
+        await googleUser.authentication;
+    final AuthCredential credential = GoogleAuthProvider.getCredential(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+    final FirebaseUser user = await _auth.signInWithCredential(credential);
+    assert(user.email != null);
+    assert(user.displayName != null);
+    assert(!user.isAnonymous);
+    assert(await user.getIdToken() != null);
 
-    // Step 1
-    GoogleSignInAccount googleUser = await _googleSignIn.signIn();
+    final FirebaseUser currentUser = await _auth.currentUser();
+    assert(user.uid == currentUser.uid);
 
-    // Step 2
-    GoogleSignInAuthentication googleAuth = await googleUser.authentication;
-    FirebaseUser user = await _auth.signInWithGoogle(
-        accessToken: googleAuth.accessToken, idToken: googleAuth.idToken);
-
-    // Step 3
-    updateUserData(user);
-
-    // Done
-    loading.add(false);
-    print("signed in " + user.displayName);
-    return user;
+    return 'signInWithGoogle succeeded: $user';
   }
 
   void updateUserData(FirebaseUser user) async {
