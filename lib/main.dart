@@ -4,6 +4,7 @@ import 'auth.dart';
 //import 'firebase_options.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'home.dart';
+//import 'package:app/login/login_view.dart';
 
 void main() => runApp(MyApp());
 
