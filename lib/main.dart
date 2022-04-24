@@ -1,3 +1,128 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Welcome to Flutter',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Groups'),
+        ),
+
+        drawer: const Drawer(
+            child: Text(
+              'Hello chaps',
+            ),
+            backgroundColor: Color.fromARGB(255, 52, 211, 4)),
+        body: ListView(padding: const EdgeInsets.all(8), children: <Widget>[
+          FlatButton(
+            onPressed: () {},
+            child: Text(
+              "Cello Hat",
+              style:
+                  DefaultTextStyle.of(context).style.apply(fontSizeFactor: 5.0),
+            ),
+            height: 300,
+            color: Color.fromARGB(0, 8, 8, 97),
+          ),
+          const BottomHud(),
+        ]),
+
+        //body: Body()
+        //body: Center(child: Button()),
+        /*bottomNavigationBar: BottomNavigationBar(
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.group),
+              label: 'My Groups',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.notification_add),
+              label: 'Notifications',
+            ),
+          ],
+        ),*/
+      ),
+    );
+  }
+}
+
+class BottomHud extends StatefulWidget {
+  const BottomHud({Key? key}) : super(key: key);
+
+  @override
+  State<BottomHud> createState() => _BottomHudState();
+}
+
+class _BottomHudState extends State<BottomHud> {
+  int _selectedTab = 0;
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Index 0: My Groups',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 1: Home',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 2: Notification',
+      style: optionStyle,
+    ),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedTab = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('BottomNavigationBar Sample'),
+      ),
+      body: Center(
+        child: _widgetOptions.elementAt(_selectedTab),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.business),
+            label: 'Business',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.school),
+            label: 'School',
+          ),
+        ],
+        currentIndex: _selectedTab,
+        selectedItemColor: Colors.amber[800],
+        onTap: _onItemTapped,
+      ),
+    );
+  }
+}
+
+
+
+
+
+
 /*
 import 'package:flutter/material.dart';
 
@@ -100,53 +225,23 @@ class MyApp extends StatelessWidget {
 }
 */
 
-import 'package:flutter/material.dart';
-
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Welcome to Flutter',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Groups'),
-        ),
-        body: Center(child: Body()),
-      ),
-    );
-  }
-}
-
-/// This is the stateless widget that the main application instantiates.
-class Body extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.bottomCenter,
-      child: RaisedButton(
-        onPressed: () {},
-        child: const Text('Bottom Button!', style: TextStyle(fontSize: 20)),
-        color: Colors.blue,
-        textColor: Colors.white,
-        elevation: 5,
-      ),
-    );
-  }
-
-  Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.bottomCenter,
-      child: RaisedButton(
-        onPressed: () {},
-        child: const Text('Bottom Button!', style: TextStyle(fontSize: 20)),
-        color: Colors.blue,
-        textColor: Colors.white,
-        elevation: 5,
-      ),
-    );
-  }
+  /*
+  // @override
+  // Widget build(BuildContext context) {
+  //   return Align(
+  //       alignment: Alignment.bottomCenter,
+  //       child: FittedBox(
+  //         fit: BoxFit.contain,
+  //         child: RaisedButton(
+            
+  //           onPressed: () {},
+  //           child: const Text('Bottom Button!', style: TextStyle(fontSize: 40)),
+  //           color: Colors.blue,
+  //           textColor: Colors.white,
+  //           elevation: 5,
+  //         ),
+  //       ));
+  // }
 }
 
 
@@ -320,4 +415,5 @@ class MyApp extends StatelessWidget {
   }
 }
 
+*/
 */
