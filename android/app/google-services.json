@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1071300766255",
+    "project_id": "asce-database",
+    "storage_bucket": "asce-database.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1071300766255:android:8e60282d20e69f38d734da",
+        "android_client_info": {
+          "package_name": "com.asce.database"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1071300766255-p72hglvgf0fjf4rn3gg7515loeudk4a3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgJEpHKwVOsiO5-7o1jEflidv5LtUFBUE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1071300766255-p72hglvgf0fjf4rn3gg7515loeudk4a3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

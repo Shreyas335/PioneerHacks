@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
+import 'home.dart';
 
 void main() => runApp(MyApp());
 
@@ -6,18 +10,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Welcome to Flutter',
-      home: Scaffold(
+        title: 'Welcome to Flutter',
+        home:
+            Home() /*Scaffold(
         appBar: AppBar(
           title: Text('Groups'),
         ),
 
         drawer: const Drawer(
             child: Text(
-              'Hello chaps',
+              'Hello chaps', style: TextStyle(color: Colors.white, fontSize: 20)
             ),
-            backgroundColor: Color.fromARGB(255, 52, 211, 4)),
-        body: ListView(padding: const EdgeInsets.all(0), children: <Widget>[
+            backgroundColor: Color.fromARGB(255, 55, 215, 254))),
+        /*body: ListView(padding: const EdgeInsets.all(0), children: <Widget>[
           FlatButton(
             onPressed: () {},
             child: Text(
@@ -88,24 +93,17 @@ class MyApp extends StatelessWidget {
 
         //body: Body()
         //body: Center(child: Button()),
-        /*bottomNavigationBar: BottomNavigationBar(
+        bottomNavigationBar: BottomNavigationBar(
           items: const [
             BottomNavigationBarItem(
-              icon: Icon(Icons.group),
-              label: 'My Groups',
-            ),
+                icon: Icon(Icons.group), label: 'My Groups'),
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.notification_add),
-              label: 'Notifications',
-            ),
+                icon: Icon(Icons.notification_add), label: 'Notifications'),
           ],
-        ),*/
-      ),
-    );
+        ),
+      ),*/*/
+        );
   }
 }
 
@@ -158,7 +156,7 @@ class _BottomHudState extends State<BottomHud> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
+            icon: Icon(Icons.notification_add),
             label: 'Notifications',
           ),
         ],
@@ -467,5 +465,5 @@ class MyApp extends StatelessWidget {
   }
 }
 
-*/
+*/  
 */
