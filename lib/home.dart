@@ -83,6 +83,7 @@ class _HomeState extends State<Home> {
       body: PageView(
         controller: pageController,
         children: [
+          Scaffold(),
           Scaffold(
             body: ListView(padding: const EdgeInsets.all(0), children: <Widget>[
               FlatButton(
@@ -154,16 +155,15 @@ class _HomeState extends State<Home> {
             ]),
           ),
           Scaffold(
-            appBar: AppBar(
-              title: Text('Login'),
-              backgroundColor: Colors.amber,
-            ),
-            body: Center(
-                child: Column(
-              children: <Widget>[LoginButton(), UserProfile()],
-            )),
-          ),
-          Scaffold()
+              // appBar: AppBar(
+              //   title: Text('Login'),
+              //   backgroundColor: Colors.amber,
+              // ),
+              // body: Center(
+              //     child: Column(
+              //   children: <Widget>[LoginButton(), UserProfile()],
+              // )),
+              )
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(

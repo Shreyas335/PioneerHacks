@@ -7,58 +7,58 @@ import 'home.dart';
 
 void main() => runApp(MyApp());
 
-class LoginButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return StreamBuilder(
-        stream: authService.user,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return MaterialButton(
-              onPressed: () => authService.signOut(),
-              color: Colors.red,
-              textColor: Colors.white,
-              child: Text('Signout'),
-            );
-          } else {
-            return MaterialButton(
-              onPressed: () => authService.SignInWithGoogle(),
-              color: Colors.white,
-              textColor: Colors.black,
-              child: Text('Login with Google'),
-            );
-          }
-        });
-  }
-}
+// class LoginButton extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return StreamBuilder(
+//         stream: authService.user,
+//         builder: (context, snapshot) {
+//           if (snapshot.hasData) {
+//             return MaterialButton(
+//               onPressed: () => authService.signOut(),
+//               color: Colors.red,
+//               textColor: Colors.white,
+//               child: Text('Signout'),
+//             );
+//           } else {
+//             return MaterialButton(
+//               onPressed: () => authService.SignInWithGoogle(),
+//               color: Colors.white,
+//               textColor: Colors.black,
+//               child: Text('Login with Google'),
+//             );
+//           }
+//         });
+//   }
+// }
 
-class UserProfile extends StatefulWidget {
-  @override
-  UserProfileState createState() => UserProfileState();
-}
+// class UserProfile extends StatefulWidget {
+//   @override
+//   UserProfileState createState() => UserProfileState();
+// }
 
-class UserProfileState extends State<UserProfile> {
-  late Map<String, dynamic> _profile;
-  bool _loading = false;
+// class UserProfileState extends State<UserProfile> {
+//   late Map<String, dynamic> _profile;
+//   bool _loading = false;
 
-  @override
-  initState() {
-    super.initState();
+//   @override
+//   initState() {
+//     super.initState();
 
-    // Subscriptions are created here
-    authService.profile.listen((state) => setState(() => _profile = state));
+//     // Subscriptions are created here
+//     authService.profile.listen((state) => setState(() => _profile = state));
 
-    authService.loading.listen((state) => setState(() => _loading = state));
-  }
+//     authService.loading.listen((state) => setState(() => _loading = state));
+//   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Column(children: <Widget>[
-      Container(padding: EdgeInsets.all(20), child: Text(_profile.toString())),
-      Text(_loading.toString())
-    ]);
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Column(children: <Widget>[
+//       Container(padding: EdgeInsets.all(20), child: Text(_profile.toString())),
+//       Text(_loading.toString())
+//     ]);
+//   }
+// }
 
 class MyApp extends StatelessWidget {
   @override
