@@ -15,9 +15,9 @@ class LoginView extends StatelessWidget {
           body: AuthenticationLayout(
         busy: model.isBusy,
         onCreateAccountTapped: () {},
-        title: 'Welcome',
-        subtitle: 'Enter your email address to sign in',
-        mainButtonTitle: 'SIGN IN',
+        title: 'Wassup',
+        subtitle: 'Try signing in with email or something',
+        mainButtonTitle: 'POP OFF',
         form: Column(
           children: [
             TextField(
