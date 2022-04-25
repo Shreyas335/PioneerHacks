@@ -69,8 +69,8 @@ class _HomeState extends State<Home> {
             padding: EdgeInsets.zero,
             children: [
               UserAccountsDrawerHeader(
-                accountName: Text(''),
-                accountEmail: Text(''),
+                accountName: Text('Sample User'),
+                accountEmail: Text('SampleEmail@gmail.com'),
                 currentAccountPicture: CircleAvatar(
                   child: ClipOval(
                     child: Image.asset(
@@ -87,7 +87,16 @@ class _HomeState extends State<Home> {
                       fit: BoxFit.fill, image: AssetImage('asset.jpeg')),
                 ),
               ),
-              ListTile(title: Text('Sign in'), onTap: () => null),
+              ListTile(
+                  title: Text('Sign in'),
+                  onTap: () => [
+                        pageController.animateToPage(2,
+                            duration: Duration(milliseconds: 100),
+                            curve: Curves.easeIn),
+                        setState(() {
+                          _pageIndex = 2;
+                        })
+                      ]),
               ListTile(title: Text('About'), onTap: () => null),
               ListTile(
                 leading: Icon(Icons.notifications),
@@ -232,62 +241,66 @@ class _HomeState extends State<Home> {
       },
     );
   }
+
+  showDialogFunc(title, context) {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return Center(
+          child: Material(
+            type: MaterialType.transparency,
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white,
+              ),
+              padding: EdgeInsets.all(15),
+              height: 320,
+              width: MediaQuery.of(context).size.width * 0.7,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    title,
+                    style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.grey,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    // width: 200,
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        "",
+                        maxLines: 3,
+                        style: TextStyle(fontSize: 15, color: Colors.grey[500]),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+                  FlatButton(
+                    onPressed: () {
+                      addItemToList();
+                    },
+                    child: Text("Add"),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
 }
 
 // This is a block of Model Dialog
-showDialogFunc(title, context) {
-  return showDialog(
-    context: context,
-    builder: (context) {
-      return Center(
-        child: Material(
-          type: MaterialType.transparency,
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.white,
-            ),
-            padding: EdgeInsets.all(15),
-            height: 320,
-            width: MediaQuery.of(context).size.width * 0.7,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  title,
-                  style: TextStyle(
-                    fontSize: 25,
-                    color: Colors.grey,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  // width: 200,
-                  child: Align(
-                    alignment: Alignment.center,
-                    child: Text(
-                      "",
-                      maxLines: 3,
-                      style: TextStyle(fontSize: 15, color: Colors.grey[500]),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-                FlatButton(
-                  onPressed: () {},
-                  child: Text("Add"),
-                ),
-              ],
-            ),
-          ),
-        ),
-      );
-    },
-  );
-}
+

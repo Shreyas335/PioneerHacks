@@ -83,7 +83,38 @@ class _LoginScreenState extends State<LoginScreen> {
     return Container(
       alignment: Alignment.centerRight,
       child: FlatButton(
-        onPressed: () => print('Forgot Password Button Pressed'),
+        onPressed: () => showDialog(
+            context: context,
+            builder: (context) {
+              return Center(
+                child: Material(
+                  type: MaterialType.transparency,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                    ),
+                    padding: EdgeInsets.all(15),
+                    height: 320,
+                    width: MediaQuery.of(context).size.width * 0.7,
+                    child: Column(
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.all(20),
+                          child: TextField(
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: 'Forgot Email',
+                            ),
+                          ),
+                        )
+                    
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            }), //print('Forgot Password Button Pressed'),
         padding: EdgeInsets.only(right: 0.0),
         child: Text(
           'Forgot Password?',
